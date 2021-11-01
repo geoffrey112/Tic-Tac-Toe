@@ -127,11 +127,33 @@ class Morpion{
     }
   }
 
-  process(){
-    let message = document.getElementById('message');
+  isWinnerOne(){
     let scoreJ1 = document.getElementById('play1');
+
+    message.innerHTML = 'Le joueur 1 à gagné !';
+    this.score[0] += 1;
+    scoreJ1.innerHTML = this.score[0];
+    this.turn = 3;
+    this.titlePlayer.innerHTML = 1;
+    this.displayColorCells('#ffdada');
+    this.displayColorBoard('red', 'outset 7px #a13b3b');
+  }
+
+  isWinnerTwo(){
     let scoreJ2 = document.getElementById('play2');
 
+    message.innerHTML = 'Le joueur 2 à gagné !';
+    this.score[1] += 1;
+    scoreJ2.innerHTML = this.score[1];
+    this.turn = 3;
+    this.titlePlayer.innerHTML = 2;
+    this.displayColorCells('#c4dfff');
+    this.displayColorBoard("#0077ff", "outset 7px #366397");
+  }
+
+  process(){
+    let message = document.getElementById('message');
+    
     for(let i = 0, leng = this.cases.length; i < leng; i++){
       this.cases[i].addEventListener('click', () =>{
 
@@ -139,69 +161,21 @@ class Morpion{
 
         if(this.turn === 1){ // Tour joueur 1
           if(this.cases[0].innerHTML === "X" && this.cases[1].innerHTML === "X" && this.cases[2].innerHTML === "X"){
-            message.innerHTML = 'Le joueur 1 à gagné !';
-            this.score[0] += 1;
-            scoreJ1.innerHTML = this.score[0];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 1;
-            this.displayColorCells('#ffdada');
-            this.displayColorBoard('red', 'outset 7px #a13b3b');
+            this.isWinnerOne();
           }else if(this.cases[3].innerHTML === "X" && this.cases[4].innerHTML === "X" && this.cases[5].innerHTML === "X"){
-            message.innerHTML = 'Le joueur 1 à gagné !';
-            this.score[0] += 1;
-            scoreJ1.innerHTML = this.score[0];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 1;
-            this.displayColorCells('#ffdada');
-            this.displayColorBoard('red', 'outset 7px #a13b3b');
+            this.isWinnerOne();
           }else if(this.cases[6].innerHTML === "X" && this.cases[7].innerHTML === "X" && this.cases[8].innerHTML === "X"){
-            message.innerHTML = 'Le joueur 1 à gagné !';
-            this.score[0] += 1;
-            scoreJ1.innerHTML = this.score[0];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 1;
-            this.displayColorCells('#ffdada');
-            this.displayColorBoard('red', 'outset 7px #a13b3b');
+            this.isWinnerOne();
           }else if(this.cases[0].innerHTML === "X" && this.cases[4].innerHTML === "X" && this.cases[8].innerHTML === "X"){
-            message.innerHTML = 'Le joueur 1 à gagné !';
-            this.score[0] += 1;
-            scoreJ1.innerHTML = this.score[0];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 1;
-            this.displayColorCells('#ffdada');
-            this.displayColorBoard('red', 'outset 7px #a13b3b');
+            this.isWinnerOne();
           }else if(this.cases[2].innerHTML === "X" && this.cases[4].innerHTML === "X" && this.cases[6].innerHTML === "X"){
-            message.innerHTML = 'Le joueur 1 à gagné !';
-            this.score[0] += 1;
-            scoreJ1.innerHTML = this.score[0];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 1;
-            this.displayColorCells('#ffdada');
-            this.displayColorBoard('red', 'outset 7px #a13b3b');
+            this.isWinnerOne();
           }else if(this.cases[0].innerHTML === "X" && this.cases[3].innerHTML === "X" && this.cases[6].innerHTML === "X"){
-            message.innerHTML = 'Le joueur 1 à gagné !';
-            this.score[0] += 1;
-            scoreJ1.innerHTML = this.score[0];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 1;
-            this.displayColorCells('#ffdada');
-            this.displayColorBoard('red', 'outset 7px #a13b3b');
+            this.isWinnerOne();
           }else if(this.cases[1].innerHTML === "X" && this.cases[4].innerHTML === "X" && this.cases[7].innerHTML === "X"){
-            message.innerHTML = 'Le joueur 1 à gagné !';
-            this.score[0] += 1;
-            scoreJ1.innerHTML = this.score[0];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 1;
-            this.displayColorCells('#ffdada');
-            this.displayColorBoard('red', 'outset 7px #a13b3b');
+            this.isWinnerOne();
           }else if(this.cases[2].innerHTML === "X" && this.cases[5].innerHTML === "X" && this.cases[8].innerHTML === "X"){
-            message.innerHTML = 'Le joueur 1 à gagné !';
-            this.score[0] += 1;
-            scoreJ1.innerHTML = this.score[0];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 1;
-            this.displayColorCells('#ffdada');
-            this.displayColorBoard('red', 'outset 7px #a13b3b');
+            this.isWinnerOne();
           }else if(this.cases[0].innerHTML !== "" && this.cases[1].innerHTML !== "" && this.cases[2].innerHTML !== "" && this.cases[3].innerHTML !== "" && this.cases[4].innerHTML !== "" && this.cases[5].innerHTML !== "" && this.cases[6].innerHTML !== "" && this.cases[7].innerHTML !== "" && this.cases[8].innerHTML !== ""){
             this.turn = 3;
             message.innerHTML = "Match nul !";
@@ -211,71 +185,21 @@ class Morpion{
           }
         }else if(this.turn === 0){ // Tour joueur 2
           if(this.cases[0].innerHTML === "O" && this.cases[1].innerHTML === "O" && this.cases[2].innerHTML === "O"){
-            console.log(this.turn);
-            message.innerHTML = 'Le joueur 2 à gagné !';
-            this.score[1] += 1;
-            scoreJ2.innerHTML = this.score[1];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 2;
-            console.log(this.turn);
-            this.displayColorCells('#c4dfff');
-            this.displayColorBoard("#0077ff", "outset 7px #366397");
+            this.isWinnerTwo();
           }else if(this.cases[3].innerHTML === "O" && this.cases[4].innerHTML === "O" && this.cases[5].innerHTML === "O"){
-            message.innerHTML = 'Le joueur 2 à gagné !';
-            this.score[1] += 1;
-            scoreJ2.innerHTML = this.score[1];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 2;
-            this.displayColorCells('#c4dfff');
-            this.displayColorBoard("#0077ff", "outset 7px #366397");
+            this.isWinnerTwo();
           }else if(this.cases[6].innerHTML === "O" && this.cases[7].innerHTML === "O" && this.cases[8].innerHTML === "O"){
-            message.innerHTML = 'Le joueur 2 à gagné !';
-            this.score[1] += 1;
-            scoreJ2.innerHTML = this.score[1];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 2;
-            this.displayColorCells('#c4dfff');
-            this.displayColorBoard("#0077ff", "outset 7px #366397");
+            this.isWinnerTwo();
           }else if(this.cases[0].innerHTML === "O" && this.cases[4].innerHTML === "O" && this.cases[8].innerHTML === "O"){
-            message.innerHTML = 'Le joueur 2 à gagné !';
-            this.score[1] += 1;
-            scoreJ2.innerHTML = this.score[1];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 2;
-            this.displayColorCells('#c4dfff');
-            this.displayColorBoard("#0077ff", "outset 7px #366397");
+            this.isWinnerTwo();
           }else if(this.cases[2].innerHTML === "O" && this.cases[4].innerHTML === "O" && this.cases[6].innerHTML === "O"){
-            message.innerHTML = 'Le joueur 2 à gagné !';
-            this.score[1] += 1;
-            scoreJ2.innerHTML = this.score[1];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 2;
-            this.displayColorCells('#c4dfff');
-            this.displayColorBoard("#0077ff", "outset 7px #366397");
+            this.isWinnerTwo();
           }else if(this.cases[0].innerHTML === "O" && this.cases[3].innerHTML === "O" && this.cases[6].innerHTML === "O"){
-            message.innerHTML = 'Le joueur 2 à gagné !';
-            this.score[1] += 1;
-            scoreJ2.innerHTML = this.score[1];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 2;
-            this.displayColorCells('#c4dfff');
-            this.displayColorBoard("#0077ff", "outset 7px #366397");
+            this.isWinnerTwo();
           }else if(this.cases[1].innerHTML === "O" && this.cases[4].innerHTML === "O" && this.cases[7].innerHTML === "O"){
-            message.innerHTML = 'Le joueur 2 à gagné !';
-            this.score[1] += 1;
-            scoreJ2.innerHTML = this.score[1];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 2;
-            this.displayColorCells('#c4dfff');
-            this.displayColorBoard("#0077ff", "outset 7px #366397");
+            this.isWinnerTwo();
           }else if(this.cases[2].innerHTML === "O" && this.cases[5].innerHTML === "O" && this.cases[8].innerHTML === "O"){
-            message.innerHTML = 'Le joueur 2 à gagné !';
-            this.score[1] += 1;
-            scoreJ2.innerHTML = this.score[1];
-            this.turn = 3;
-            this.titlePlayer.innerHTML = 2;
-            this.displayColorCells('#c4dfff');
-            this.displayColorBoard("#0077ff", "outset 7px #366397");
+            this.isWinnerTwo();
           }
         }
       });

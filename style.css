@@ -107,7 +107,7 @@ h1{
   box-shadow: 4px 4px 8px;
   border:outset 2px;
   transition-duration: 0.5s;
-  transition-property: box-shadow font-size;
+  transition-property: box-shadow, font-size;
 }
 
 .buttonReset:hover{
